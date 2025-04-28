@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="blue">#0000ff</color> <!-- Синий цвет -->
+    <color name="lightBlue">#add8e6</color> <!-- Светлый голубой цвет -->
+    <color name="lightSkyBlue">#87cefa</color> <!-- Светлое небо (голубой) -->
+    <color name="skyBlue">#00bfff</color> <!-- Небесно-голубой цвет -->
+</resources>
