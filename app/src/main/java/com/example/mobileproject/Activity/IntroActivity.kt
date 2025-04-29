@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.mobileproject.databinding.ActivityIntroBinding
 import com.example.mobileproject.MainActivity
 
-class IntroActivity : AppCompatActivity() {
+class IntroActivity : BaseActivity() {
     private lateinit var binding: ActivityIntroBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
