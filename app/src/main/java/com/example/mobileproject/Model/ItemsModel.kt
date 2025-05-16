@@ -8,6 +8,5 @@ data class ItemsModel(
     var categoryId:String="",
     var picUrl:ArrayList<String> = ArrayList(),
     var size:ArrayList<String> = ArrayList(),
-    var price:Double=0.0,
-    var numberInChart:Int=0
+    var price:Double=0.0
 ):Serializable

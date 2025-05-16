@@ -14,8 +14,9 @@ import com.example.mobileproject.Model.CategoryModel
 import com.example.mobileproject.R
 import com.example.mobileproject.databinding.ViewholderCategoryBinding
 
-class CategoryAdapter(val items: MutableList<CategoryModel>)
-    : RecyclerView.Adapter<CategoryAdapter.Viewholder>() {
+class CategoryAdapter(
+    private var items: MutableList<CategoryModel>
+) : RecyclerView.Adapter<CategoryAdapter.Viewholder>() {
 
     inner class Viewholder(val binding: ViewholderCategoryBinding)
         : RecyclerView.ViewHolder(binding.root)
@@ -44,13 +45,17 @@ class CategoryAdapter(val items: MutableList<CategoryModel>)
             holder.binding.picCat.setBackgroundResource(R.drawable.blue_bg)
             ImageViewCompat.setImageTintList(
                 holder.binding.picCat,
-                ColorStateList.valueOf(ContextCompat.getColor(holder.itemView.context, R.color.white))
+                ColorStateList.valueOf(
+                    ContextCompat.getColor(holder.itemView.context, R.color.white)
+                )
             )
         } else {
             holder.binding.picCat.setBackgroundResource(R.drawable.lightblue_circle_bg)
             ImageViewCompat.setImageTintList(
                 holder.binding.picCat,
-                ColorStateList.valueOf(ContextCompat.getColor(holder.itemView.context, R.color.black))
+                ColorStateList.valueOf(
+                    ContextCompat.getColor(holder.itemView.context, R.color.black)
+                )
             )
         }
 
@@ -65,7 +70,7 @@ class CategoryAdapter(val items: MutableList<CategoryModel>)
                 android.os.Handler(Looper.getMainLooper()).postDelayed({
                     val intent = Intent(holder.itemView.context, ListItemsActivity::class.java).apply {
                         putExtra("id", item.id.toString())
-                        putExtra("title", item.title) // Исправлено дублирование ключа
+                        putExtra("title", item.title)
                     }
                     ContextCompat.startActivity(holder.itemView.context, intent, null)
                 }, 500)
@@ -74,4 +79,10 @@ class CategoryAdapter(val items: MutableList<CategoryModel>)
     }
 
     override fun getItemCount(): Int = items.size
+
+
+    fun updateList(newList: List<CategoryModel>) {
+        items = newList.toMutableList()
+        notifyDataSetChanged()
+    }
 }
