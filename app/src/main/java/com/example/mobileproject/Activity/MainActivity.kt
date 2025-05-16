@@ -11,7 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mobileproject.Adapter.BestSellerAdapter
 import com.example.mobileproject.Adapter.CategoryAdapter
-import com.example.mobileproject.Model.CategoryModel          // <--- если путь иной, измени
+import com.example.mobileproject.Model.CategoryModel          
 import com.example.mobileproject.R
 import com.example.mobileproject.ViewModel.MainViewModel
 import com.example.mobileproject.databinding.ActivityMainBinding
@@ -100,12 +100,12 @@ class MainActivity : AppCompatActivity() {
         if (!::categoryAdapter.isInitialized) return
 
         val filtered = if (query.isBlank()) {
-            originalCategoryList                       // пустой запрос → полный список
+            originalCategoryList                       
         } else {
             originalCategoryList.filter {
                 it.title.contains(query, ignoreCase = true)
             }
         }
-        categoryAdapter.updateList(filtered)            // метод в адаптере, см. ниже
+        categoryAdapter.updateList(filtered)            
     }
 }
